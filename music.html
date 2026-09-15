@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Song ❤️</title>
+
+    <link rel="stylesheet" href="music.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background"></div>
+
+    <div class="overlay"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Title -->
+        <div class="title">
+
+            <h1>Our Song ❤️</h1>
+
+            <p>Every beat reminds me of you.</p>
+
+        </div>
+
+        <!-- Music Card -->
+        <div class="player">
+
+            <!-- Vinyl -->
+            <div class="vinyl">
+
+                <!-- Cover -->
+                <div class="cover">
+
+                    <img src="photo20.jpeg" alt="Cover">
+
+                </div>
+
+            </div>
+
+            <!-- Song Info -->
+            <h2 class="song-title">
+
+                Photograph
+
+            </h2>
+
+            <p class="artist">
+
+                Ed Sheeran
+
+            </p>
+
+            <!-- Controls -->
+            <div class="controls">
+
+                <button id="prev">
+
+                    ⏮
+
+                </button>
+
+                <button id="play">
+
+                    ▶
+
+                </button>
+
+                <button id="next">
+
+                    ⏭
+
+                </button>
+
+            </div>
+
+            <!-- Progress -->
+            <div class="progress-area">
+
+                <input
+                    type="range"
+                    id="progress"
+                    class="progress"
+                    value="0"
+                    min="0"
+                    max="100">
+
+                <div class="time">
+
+                    <span id="current">
+
+                        00:00
+
+                    </span>
+
+                    <span id="duration">
+
+                        00:00
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Back -->
+            <div class="button">
+
+                <a href="page2.html" class="back">
+
+                    ⬅ Back
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Audio -->
+    <audio id="audio">
+
+        <source src="Photograph.mp3" type="audio/mpeg">
+
+    </audio>
+
+    <script src="music.js"></script>
+
+</body>
+
+</html>

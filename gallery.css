@@ -1,0 +1,1252 @@
+/* =================================
+        RESET
+================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    min-height: 100%;
+
+}
+
+
+body {
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #21050d;
+
+    color: white;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =================================
+        BACKGROUND
+================================= */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -5;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            #6b1725 0%,
+            #4a0c17 35%,
+            #26050d 72%,
+            #100207 100%
+        );
+
+}
+
+
+.background::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 120, 120, .08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255, 80, 100, .06),
+            transparent 35%
+        );
+
+}
+
+
+.vignette {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -4;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            transparent 35%,
+            rgba(0,0,0,.25) 65%,
+            rgba(0,0,0,.75) 100%
+        );
+
+}
+
+
+/* =================================
+        PAGE
+================================= */
+
+.gallery-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding-top: 35px;
+
+    padding-bottom: 100px;
+
+}
+
+
+/* =================================
+        TITLE
+================================= */
+
+.title {
+
+    position: relative;
+
+    text-align: center;
+
+    z-index: 20;
+
+}
+
+
+.title h1 {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 92px;
+
+    font-weight: 400;
+
+    color: #fffaf3;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+
+        0 0 5px rgba(255,255,255,.4),
+
+        0 0 25px rgba(255,220,220,.18);
+
+}
+
+
+.title-line {
+
+    font-size: 28px;
+
+    margin-top: -5px;
+
+    color: #fff5ec;
+
+}
+
+
+/* =================================
+        POLAROID
+================================= */
+
+.polaroid {
+
+    position: absolute;
+
+    width: 245px;
+
+    padding: 10px 10px 28px;
+
+    background: #f5eee3;
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.45),
+
+        0 3px 5px rgba(0,0,0,.2);
+
+    color: #342326;
+
+    z-index: 5;
+
+    cursor: pointer;
+
+    transition:
+
+        transform .5s ease,
+
+        box-shadow .5s ease;
+
+}
+
+
+.polaroid img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 215px;
+
+    object-fit: cover;
+
+}
+
+
+.polaroid p {
+
+    font-family: 'Great Vibes', cursive;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    line-height: 1.1;
+
+    margin-top: 10px;
+
+}
+
+
+.polaroid:hover {
+
+    transform:
+
+        rotate(0deg)
+
+        scale(1.07)
+
+        translateY(-8px);
+
+    box-shadow:
+
+        0 25px 55px rgba(0,0,0,.6),
+
+        0 0 25px rgba(255,180,180,.15);
+
+    z-index: 30;
+
+}
+/* =================================
+        POLAROID POSITIONS
+================================= */
+
+.photo1 {
+
+    left: 35px;
+
+    top: 280px;
+
+    transform: rotate(-9deg);
+
+}
+
+
+.photo2 {
+
+    right: 30px;
+
+    top: 330px;
+
+    transform: rotate(8deg);
+
+}
+
+
+.photo3 {
+
+    left: 55px;
+
+    top: 700px;
+
+    transform: rotate(7deg);
+
+}
+
+
+.photo4 {
+
+    right: 55px;
+
+    top: 770px;
+
+    transform: rotate(-7deg);
+
+}
+
+
+/* =================================
+        PHOTObOOTH
+================================= */
+
+.photobooth {
+
+    position: absolute;
+
+    top: 310px;
+
+    left: 50%;
+
+    transform: translateX(-50%)
+               rotate(-1deg);
+
+    width: 170px;
+
+    padding: 14px 13px 18px;
+
+    background: #791526;
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.55),
+
+        0 0 25px rgba(255,100,120,.1);
+
+    z-index: 10;
+
+    transition: .5s ease;
+
+}
+
+
+.photobooth:hover {
+
+    transform:
+
+        translateX(-50%)
+
+        rotate(0deg)
+
+        scale(1.04);
+
+}
+
+
+.booth-top {
+
+    height: 10px;
+
+}
+
+
+.booth-photo {
+
+    width: 100%;
+
+    height: 165px;
+
+    padding: 3px;
+
+    background: #f8eee5;
+
+}
+
+
+.booth-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+.booth-bottom {
+
+    text-align: center;
+
+    color: white;
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 28px;
+
+    margin-top: 8px;
+
+}
+
+
+/* =================================
+        MINI PHOTOS
+================================= */
+
+.mini-photo {
+
+    position: absolute;
+
+    width: 95px;
+
+    height: 115px;
+
+    padding: 5px;
+
+    background: #f5eee3;
+
+    box-shadow:
+
+        0 10px 20px rgba(0,0,0,.4);
+
+    z-index: 4;
+
+    opacity: .95;
+
+    transition: .4s ease;
+
+}
+
+
+.mini-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.mini-photo:hover {
+
+    transform:
+
+        rotate(0deg)
+
+        scale(1.25);
+
+    z-index: 25;
+
+    opacity: 1;
+
+}
+
+
+/* =================================
+        MINI POSITIONS
+================================= */
+
+.mini9 {
+
+    left: 285px;
+
+    top: 270px;
+
+    transform: rotate(12deg);
+
+}
+
+
+.mini10 {
+
+    left: 300px;
+
+    top: 445px;
+
+    transform: rotate(-8deg);
+
+}
+
+
+.mini11 {
+
+    right: 275px;
+
+    top: 275px;
+
+    transform: rotate(-12deg);
+
+}
+
+
+.mini12 {
+
+    right: 285px;
+
+    top: 490px;
+
+    transform: rotate(10deg);
+
+}
+
+
+.mini13 {
+
+    left: 280px;
+
+    top: 650px;
+
+    transform: rotate(-12deg);
+
+}
+
+
+.mini14 {
+
+    right: 280px;
+
+    top: 650px;
+
+    transform: rotate(11deg);
+
+}
+
+
+.mini15 {
+
+    left: 315px;
+
+    top: 900px;
+
+    transform: rotate(7deg);
+
+}
+
+
+.mini16 {
+
+    right: 310px;
+
+    top: 920px;
+
+    transform: rotate(-8deg);
+
+}
+
+
+.mini17 {
+
+    left: 170px;
+
+    top: 1030px;
+
+    transform: rotate(-12deg);
+
+}
+
+
+.mini18 {
+
+    right: 170px;
+
+    top: 1050px;
+
+    transform: rotate(10deg);
+
+}
+
+
+.mini19 {
+
+    left: 430px;
+
+    top: 1030px;
+
+    transform: rotate(5deg);
+
+}
+
+
+.mini20 {
+
+    right: 430px;
+
+    top: 1050px;
+
+    transform: rotate(-5deg);
+
+}
+/* =================================
+        DOODLES
+================================= */
+
+.doodle {
+
+    position: absolute;
+
+    color: rgba(255,255,255,.8);
+
+    font-family: 'Great Vibes', cursive;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+}
+
+
+.doodle-heart {
+
+    left: 90px;
+
+    top: 190px;
+
+    font-size: 50px;
+
+    transform: rotate(-15deg);
+
+}
+
+
+.doodle-star {
+
+    right: 100px;
+
+    top: 220px;
+
+    font-size: 55px;
+
+    transform: rotate(15deg);
+
+}
+
+
+.doodle-rose {
+
+    left: 135px;
+
+    top: 570px;
+
+    font-size: 90px;
+
+    transform: rotate(-8deg);
+
+}
+
+
+.doodle-bow {
+
+    right: 80px;
+
+    top: 590px;
+
+    font-size: 80px;
+
+    transform: rotate(20deg);
+
+}
+
+
+/* =================================
+        CAKE
+================================= */
+
+.cake {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 1040px;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 32px;
+
+    text-align: center;
+
+    line-height: .8;
+
+    z-index: 3;
+
+}
+
+
+/* =================================
+        MESSAGE
+================================= */
+
+.memory-message {
+
+    position: absolute;
+
+    right: 130px;
+
+    top: 700px;
+
+    width: 180px;
+
+    text-align: center;
+
+    z-index: 3;
+
+}
+
+
+.memory-message p {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    margin: 10px 0;
+
+}
+
+
+.memory-message span {
+
+    font-size: 30px;
+
+}
+
+
+/* =================================
+        BACK BUTTON
+================================= */
+
+.back-button {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 1150px;
+
+    transform: translateX(-50%);
+
+    display: block;
+
+    width: 145px;
+
+    padding: 9px 0;
+
+    border: 1px solid #e99aa5;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #7d1d2d,
+            #4d0b17
+        );
+
+    box-shadow:
+
+        0 5px 15px rgba(0,0,0,.4);
+
+    transition: .35s ease;
+
+    z-index: 30;
+
+}
+
+
+.back-button:hover {
+
+    transform:
+
+        translateX(-50%)
+
+        translateY(-4px);
+
+    background: #9c2539;
+
+    box-shadow:
+
+        0 0 25px rgba(255,100,120,.35);
+
+}
+
+
+/* =================================
+        HEARTS
+================================= */
+
+#heartContainer {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 40;
+
+}
+
+
+.floating-heart {
+
+    position: absolute;
+
+    bottom: -30px;
+
+    color: #ff9eaa;
+
+    font-size: 18px;
+
+    opacity: 0;
+
+    animation:
+
+        floatingHeart linear forwards;
+
+}
+
+
+@keyframes floatingHeart {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(0)
+
+            rotate(0deg)
+
+            scale(.6);
+
+    }
+
+
+    15% {
+
+        opacity: .8;
+
+    }
+
+
+    80% {
+
+        opacity: .7;
+
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(-110vh)
+
+            rotate(360deg)
+
+            scale(1.4);
+
+    }
+
+}
+
+
+/* =================================
+        PHOTO VIEWER
+================================= */
+
+.photo-viewer {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(10,0,5,.88);
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .4s ease;
+
+    z-index: 100;
+
+}
+
+
+.photo-viewer.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.photo-viewer img {
+
+    max-width: 85vw;
+
+    max-height: 85vh;
+
+    border: 10px solid #f5eee3;
+
+    box-shadow:
+
+        0 20px 70px rgba(0,0,0,.7);
+
+    transform: scale(.7);
+
+    transition: .4s ease;
+
+}
+
+
+.photo-viewer.active img {
+
+    transform: scale(1);
+
+}
+
+
+#closeViewer {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 35px;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.12);
+
+    color: white;
+
+    font-size: 35px;
+
+    cursor: pointer;
+
+}
+/* =================================
+        TABLET
+================================= */
+
+@media (max-width: 900px) {
+
+    .gallery-page {
+
+        max-width: 760px;
+
+    }
+
+
+    .title h1 {
+
+        font-size: 75px;
+
+    }
+
+
+    .polaroid {
+
+        width: 190px;
+
+    }
+
+
+    .polaroid img {
+
+        height: 165px;
+
+    }
+
+
+    .photo1 {
+
+        left: 15px;
+
+    }
+
+
+    .photo2 {
+
+        right: 15px;
+
+    }
+
+
+    .photo3 {
+
+        left: 15px;
+
+    }
+
+
+    .photo4 {
+
+        right: 15px;
+
+    }
+
+
+    .mini-photo {
+
+        display: none;
+
+    }
+
+
+    .memory-message {
+
+        right: 30px;
+
+    }
+
+}
+
+
+/* =================================
+        MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    body {
+
+        overflow-x: hidden;
+
+    }
+
+
+    .gallery-page {
+
+        min-height: 1500px;
+
+        padding-top: 25px;
+
+    }
+
+
+    .title h1 {
+
+        font-size: 58px;
+
+    }
+
+
+    .title-line {
+
+        font-size: 22px;
+
+    }
+
+
+    .polaroid {
+
+        width: 145px;
+
+        padding: 7px 7px 20px;
+
+    }
+
+
+    .polaroid img {
+
+        height: 130px;
+
+    }
+
+
+    .polaroid p {
+
+        font-size: 18px;
+
+    }
+
+
+    .photo1 {
+
+        left: 8px;
+
+        top: 260px;
+
+    }
+
+
+    .photo2 {
+
+        right: 8px;
+
+        top: 330px;
+
+    }
+
+
+    .photo3 {
+
+        left: 8px;
+
+        top: 760px;
+
+    }
+
+
+    .photo4 {
+
+        right: 8px;
+
+        top: 830px;
+
+    }
+
+
+    .photobooth {
+
+        top: 430px;
+
+        width: 125px;
+
+        padding: 10px 9px 12px;
+
+    }
+
+
+    .booth-photo {
+
+        height: 125px;
+
+    }
+
+
+    .booth-bottom {
+
+        font-size: 22px;
+
+    }
+
+
+    .doodle-heart {
+
+        left: 35px;
+
+        top: 190px;
+
+        font-size: 35px;
+
+    }
+
+
+    .doodle-star {
+
+        right: 30px;
+
+        top: 200px;
+
+        font-size: 35px;
+
+    }
+
+
+    .doodle-rose {
+
+        left: 30px;
+
+        top: 600px;
+
+        font-size: 55px;
+
+    }
+
+
+    .doodle-bow {
+
+        right: 25px;
+
+        top: 620px;
+
+        font-size: 50px;
+
+    }
+
+
+    .memory-message {
+
+        right: 50%;
+
+        transform: translateX(50%);
+
+        top: 1030px;
+
+        width: 170px;
+
+    }
+
+
+    .memory-message p {
+
+        font-size: 28px;
+
+    }
+
+
+    .cake {
+
+        top: 1150px;
+
+    }
+
+
+    .back-button {
+
+        top: 1250px;
+
+    }
+
+}

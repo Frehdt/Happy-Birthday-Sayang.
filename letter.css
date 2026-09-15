@@ -1,0 +1,561 @@
+/* ============================================================
+   GLOBAL
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #000000;
+    color: #ffffff;
+
+    font-family: "Archivo Black", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+
+/* ============================================================
+   CANVAS
+============================================================ */
+
+#matrixCanvas {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    background: #000000;
+
+    z-index: 1;
+}
+
+
+/* ============================================================
+   STAGE
+============================================================ */
+
+.stage {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   MAIN MESSAGE
+============================================================ */
+
+.message {
+    position: relative;
+
+    width: 94%;
+
+    text-align: center;
+
+    color: #ffb3d9;
+
+    font-family: "Archivo Black", sans-serif;
+
+    font-size: clamp(2.5rem, 11vw, 7rem);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.025em;
+
+    text-transform: uppercase;
+
+    /* Glow tipis */
+    text-shadow:
+        0 0 4px rgba(255, 179, 217, 0.95),
+        0 0 12px rgba(255, 143, 199, 0.55),
+        0 0 25px rgba(255, 105, 180, 0.20);
+
+    opacity: 0;
+
+    transform: scale(0.75);
+
+    filter: blur(7px);
+
+    will-change:
+        transform,
+        opacity,
+        filter;
+}
+
+
+/* ============================================================
+   ASSEMBLE
+============================================================ */
+
+.message.assemble {
+
+    animation:
+        messageAssemble 1.25s
+        cubic-bezier(.17,.67,.19,1)
+        forwards;
+}
+
+
+@keyframes messageAssemble {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.72)
+            translateY(8px);
+
+        filter:
+            blur(9px);
+    }
+
+    35% {
+        opacity: 0.35;
+
+        transform:
+            scale(0.88)
+            translateY(3px);
+
+        filter:
+            blur(5px);
+    }
+
+    65% {
+        opacity: 0.8;
+
+        transform:
+            scale(1.035)
+            translateY(-1px);
+
+        filter:
+            blur(1px);
+    }
+
+    82% {
+        opacity: 1;
+
+        transform:
+            scale(0.985);
+
+        filter:
+            blur(0);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* ============================================================
+   DISTRESSED / TORN EFFECT
+============================================================ */
+
+.message::before,
+.message::after {
+
+    content: attr(data-text);
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    color: #ff8fc7;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+}
+
+
+/* Partikel / pecahan atas */
+
+.message::before {
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 46%,
+        95% 43%,
+        90% 48%,
+        83% 42%,
+        75% 47%,
+        67% 41%,
+        58% 48%,
+        48% 42%,
+        40% 47%,
+        30% 41%,
+        20% 48%,
+        10% 43%,
+        0 48%
+    );
+
+    transform: translateX(-4px);
+}
+
+
+/* Partikel / pecahan bawah */
+
+.message::after {
+
+    clip-path: polygon(
+        0 54%,
+        10% 59%,
+        18% 53%,
+        27% 60%,
+        36% 54%,
+        45% 61%,
+        54% 54%,
+        63% 60%,
+        72% 53%,
+        82% 60%,
+        91% 54%,
+        100% 59%,
+        100% 100%,
+        0 100%
+    );
+
+    transform: translateX(4px);
+}
+
+
+/* Saat assembling */
+
+.message.assemble::before {
+
+    animation:
+        glitchTop 1.25s
+        ease-out
+        forwards;
+}
+
+.message.assemble::after {
+
+    animation:
+        glitchBottom 1.25s
+        ease-out
+        forwards;
+}
+
+
+@keyframes glitchTop {
+
+    0% {
+        opacity: 0;
+        transform: translate(-25px, -8px);
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    65% {
+        opacity: 0.45;
+        transform: translate(8px, -3px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+}
+
+
+@keyframes glitchBottom {
+
+    0% {
+        opacity: 0;
+        transform: translate(25px, 8px);
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    65% {
+        opacity: 0.4;
+        transform: translate(-7px, 4px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+}
+
+
+/* ============================================================
+   DISSOLVE
+============================================================ */
+
+.message.dissolve {
+
+    animation:
+        messageDissolve 1.15s
+        cubic-bezier(.7,0,.9,.4)
+        forwards;
+}
+
+
+@keyframes messageDissolve {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+
+    25% {
+        opacity: 0.95;
+
+        transform:
+            scale(1.02)
+            translateX(-2px);
+
+        filter:
+            blur(0.5px);
+    }
+
+    50% {
+        opacity: 0.55;
+
+        transform:
+            scale(1.05)
+            translateX(3px);
+
+        filter:
+            blur(2px);
+    }
+
+    75% {
+        opacity: 0.2;
+
+        transform:
+            scale(1.1)
+            translateY(-4px);
+
+        filter:
+            blur(5px);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            scale(1.16)
+            translateY(-8px);
+
+        filter:
+            blur(10px);
+    }
+}
+
+
+/* ============================================================
+   FINISH SCREEN
+============================================================ */
+
+.finish-screen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 30;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    padding-bottom: 8vh;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   REPLAY BUTTON
+============================================================ */
+
+.replay-button {
+
+    border: 1px solid rgba(255, 179, 217, 0.65);
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: #ffb3d9;
+
+    font-family: "Archivo Black", sans-serif;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 0.12em;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px)
+        scale(0.9);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        background 0.25s ease;
+
+    box-shadow:
+        0 0 15px rgba(255, 143, 199, 0.12);
+}
+
+
+.replay-button:hover {
+
+    background:
+        rgba(255, 143, 199, 0.12);
+
+}
+
+
+.replay-button.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+
+/* ============================================================
+   RESPONSIVE DESKTOP
+============================================================ */
+
+@media (min-width: 700px) {
+
+    body {
+        background: #000000;
+    }
+
+    #matrixCanvas {
+        /*
+         Tetap memenuhi layar desktop.
+         Konten utama tetap dibuat terasa seperti
+         video vertikal.
+        */
+    }
+
+    .message {
+
+        width: min(900px, 90vw);
+
+        font-size:
+            clamp(
+                4rem,
+                8vw,
+                8rem
+            );
+    }
+}
+
+
+/* ============================================================
+   SMALL PHONE
+============================================================ */
+
+@media (max-width: 380px) {
+
+    .message {
+
+        font-size: 10vw;
+
+        letter-spacing:
+            -0.04em;
+    }
+
+    .replay-button {
+
+        font-size: 0.65rem;
+
+        padding:
+            12px 18px;
+    }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}

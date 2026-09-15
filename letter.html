@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Mobile-first / vertical 9:16 -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Happy Birthday</title>
+
+    <!-- Font utama -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="letter.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         CANVAS MATRIX RAIN
+         Semua hujan kode dirender di sini
+    ========================================================== -->
+    <canvas id="matrixCanvas"></canvas>
+
+
+    <!-- =========================================================
+         AREA UTAMA
+         Digunakan untuk menampilkan pesan di tengah layar
+    ========================================================== -->
+    <main class="stage">
+
+        <div id="message"
+             class="message"
+             aria-live="polite">
+        </div>
+
+        <!-- efek partikel di sekitar teks -->
+        <div id="particles"></div>
+
+    </main>
+
+
+    <!-- =========================================================
+         UI SELESAI
+    ========================================================== -->
+    <div id="finishScreen" class="finish-screen">
+
+        <button id="replayButton" class="replay-button">
+            ↻ PUTAR ULANG
+        </button>
+
+    </div>
+
+
+    <script src="letter.js"></script>
+
+</body>
+</html>
